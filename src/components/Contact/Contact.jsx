@@ -1,28 +1,9 @@
-// import { useState } from "react";
-// import { firestore } from "../firebase";
-// import { collection, addDoc } from "firebase/firestore";
-// import { initializeApp } from "firebase/app";
-// import { getFirestore, collection, addDoc } from "firebase/firestore";
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDo81s1ieaupzkOBEEyOo6Uwjg6yXbdRgg",
-//   authDomain: "errorwhatsapp-e7988.firebaseapp.com",
-//   databaseURL: "https://errorwhatsapp-e7988-default-rtdb.firebaseio.com",
-//   projectId: "errorwhatsapp-e7988",
-//   storageBucket: "errorwhatsapp-e7988.appspot.com",
-//   messagingSenderId: "30094134425",
-//   appId: "1:30094134425:web:31b4d406fb430165987c08",
-//   measurementId: "G-0LTMR0JQWB"
-// };
-
-// const firebaseApp = initializeApp(firebaseConfig);
-// const firestore = getFirestore(firebaseApp);
-
 
 
 
 // Contact.js
 
+import axios from "axios";
 import { useState } from "react";
 import { firestore } from "../firebase"; // Adjust the path as needed
 import { collection, addDoc } from "firebase/firestore";
@@ -33,7 +14,7 @@ export default function Contact() {
     name: "",
     email: "",
     tel: "",
-    query: "",
+    details: "",
   });
 
   const handleChange = (e) => {
@@ -42,17 +23,15 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try{
+      await axios.post("https://formspree.io/f/mwkdkywy",formData);
+      alert("Emial sent Successfully");
+      setFormData({ name: "", email: "", tel: "", details: "" });
+    }catch(err){
+      alert("Faild to send mail");
+      setFormData({ name: "", email: "", tel: "", details: "" });
+    }
 
-    setFormData({ name: "", email: "", tel: "", query: "" });
-    // try {
-    //   const docRef = await addDoc(collection(firestore, "ContactUsersInfo"), formData);
-    //   console.log("Document written with ID: ", docRef.id);
-    //   setFlag(true);
-    // } catch (error) {
-    //   console.error("Error adding document: ", error);
-    // }
-
-    setFormData({ name: "", email: "", tel: "", query: "" });
   };
 
   return (
@@ -95,50 +74,6 @@ export default function Contact() {
                   </svg>
                   <div className="ml-4 text-md tracking-wide font-semibold w-40">
                     Allahabad ,UP.
-                  </div>
-                </div>
-
-                <div className="flex items-center mt-4 text-gray-600">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 text-gray-500"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  {/* <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                    +91 9525633767
-                  </div> */}
-                </div>
-
-                <div className="flex items-center mt-2 text-gray-600">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 text-gray-500"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                    errornadge1729@gmail.com
                   </div>
                 </div>
               </div>
@@ -193,16 +128,16 @@ export default function Contact() {
                 </div>
                 
                 <div className="flex flex-col mt-2">
-                  <label htmlFor="query" className="hidden">
-                    Query
+                  <label htmlFor="details" className="hidden">
+                    Details
                   </label>
                   <input
                     type="text"
-                    name="query"
-                    id="query"
+                    name="details"
+                    id="details"
                     placeholder="Enter Shop details"
                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                    value={formData.query}
+                    value={formData.details}
                     onChange={handleChange}
                   />
                 </div>

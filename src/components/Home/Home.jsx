@@ -33,7 +33,6 @@ export default function Home() {
           listen to what they need and add new things to make sure everything
           works just right for your. Our goal is to help businesses succeed
           online with user-friendly and effective digital solutions.
-          {/* <span className="hidden sm:block text-2xl">With Us</span> */}
         </h4>
         <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
           <img

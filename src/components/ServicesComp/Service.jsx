@@ -35,7 +35,7 @@ const Service = () => {
           />
           <Card
             imageSrc="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/49/e7/02/thyme-full-view.jpg?w=600&h=-1&s=1"
-            title="Jewelry Shop Management"
+            title="Restrorent Management"
             description="Adorn yourself uniquely with our digitized jewelry shop—elegance, craftsmanship, and timeless beauty for every moment."
           />
         </div>

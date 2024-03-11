@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Tabs } from 'flowbite-react';
+
 export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
@@ -28,12 +30,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <h4 className="text-2xl font-bold sm:text-3xl">
-          We make websites and computer programs for people's businesses. We
-          listen to what they need and add new things to make sure everything
-          works just right for your. Our goal is to help businesses succeed
-          online with user-friendly and effective digital solutions.
-        </h4>
+        
         <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
           <img
             className="w-96"
@@ -42,6 +39,28 @@ export default function Home() {
           />
         </div>
       </aside>
+
+    <Tabs className="m-5 bg-white">
+      <Tabs.Item active title="Hindi" className="">   
+        हम आपके बिजनेस के लिए software, website और mobile apps बनाते हैं 
+        ताकि आपका व्यापार automate और grow हो सके। हम आपके बिजनेस की 
+        आवश्यकताओं को सरल तरीके से समझ के उन्हें पूरा करने के
+         लिए सॉफ़्टवेयर डिज़ाइन करते हैं। हमारे द्वारा उपयोग किए जाने वाले best 
+         तकनीकी और अनुभव के साथ, हम आपके बिजनेस को grow करने
+          और उसे नई ऊँचाइयों तक पहुँचाने में सहायक होते हैं। आइए हमारे साथ आपके
+           व्यवसाय को नई ऊर्जा और नया दिशा दें!
+      </Tabs.Item>
+      <Tabs.Item title="English" className="">
+        We create software, websites, and mobile applications for 
+        your business so that your business can automate and grow.
+         We understand the needs of your business in a simple manner
+          and design software to fulfill them. With the best technology
+           and experience used by us, we assist your business in growing 
+           and reaching new heights. Let's work together to give your 
+           business new energy and direction!
+      </Tabs.Item>
+    </Tabs>
+
 
       <div className="grid  place-items-center sm:mt-20">
         <img
@@ -90,6 +109,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
-  );
+
+ </div>
+
+ );
 }
